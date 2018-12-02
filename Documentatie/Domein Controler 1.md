@@ -21,6 +21,10 @@
 ## Configuratie
 
 1) De eerste stap is altijd de computernaam instellen, hiervoor gebruiken we het commando `Rename-Computer -NewName ServerDC1`
+2) De computernaam instellen komt altijd gepaard met een restart: `Restart-Computer -Force`
+3) `install-windowsfeature AD-Domain-Services -IncludeManagementTools`
+4) `Install-ADDSForest -DomainName keanys.gent -Force`
+
 
 ### Manuele configuratie
 
