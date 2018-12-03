@@ -27,6 +27,8 @@
 
 Get-DhcpServerInDC
 Get-DhcpServerv4Scope
+Get-DhcpServerv4OptionValue
+Get-Service dhcpserver
 
 ### Manuele configuratie
 
