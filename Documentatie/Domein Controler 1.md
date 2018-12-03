@@ -34,3 +34,7 @@ Het script is te vinden in [/scripts/DC1_setup.ps1](https://github.com/KeanuNys/
 
 
 Admin Password: Ke3anu
+
+## Resources:
+
+- https://docs.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-deploy-wps
