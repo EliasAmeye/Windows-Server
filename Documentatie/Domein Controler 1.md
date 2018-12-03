@@ -25,6 +25,8 @@
 3) `install-windowsfeature AD-Domain-Services -IncludeManagementTools`
 4) `Install-ADDSForest -DomainName keanys.gent -Force`
 
+Get-DhcpServerInDC
+Get-DhcpServerv4Scope
 
 ### Manuele configuratie
 
