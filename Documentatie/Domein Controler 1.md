@@ -42,6 +42,21 @@
       Ethernet 2                           7 IPv4    {127.0.0.1}
       Ethernet 2                           7 IPv6    {::1}
       ```
+  * Forward Dns requests naar dns server van school en google:
+    ```
+    Add-DnsServerForwarder -IPAddress 193.190.173.1 
+    Add-DnsServerForwarder -IPAddress 8.8.8.8 
+    ```
+    * Controlleren met `Get-DnsServerForwarder`:
+    ```
+    PS C:\Users\Administrator> Get-DnsServerForwarder
+
+    UseRootHint        : True
+    Timeout(s)         : 3
+    EnableReordering   : True
+    IPAddress          : {193.190.173.1, 8.8.8.8, fec0:0:0:ffff::2, fec0:0:0:ffff::3...}
+    ReorderedIPAddress : {193.190.173.1, 8.8.8.8, fec0:0:0:ffff::2, fec0:0:0:ffff::3...}
+    ```
     
 3) Installeer AD DS
   * Volgend commando: `install-windowsfeature AD-Domain-Services -IncludeManagementTools` installeert de AD-Domain_Services.
@@ -85,6 +100,23 @@
     ------   ----               -----------
     Running  dhcpserver         DHCP Server
     ```
+
+5) Routing en NAT
+Install-windowsFeature Routing -IncludeManagementTools -Restart
+
+
+write-host "Configuring nat"
+Install-RemoteAccess -VpnType Vpn
+
+netsh routing ip nat install
+
+netsh routing ip nat add interface Ethernet
+netsh routing ip nat set interface Ethernet mode=full
+
+netsh routing ip nat add interface "Ethernet 2"
+
+netsh routing ip nat show interface
+    
 
 ### Script
 Uit de manuele configuratie kunnen we nu een script maken. De commando's zijn hierboven al uitgelegd dus dit nog eens doen in deze sectie zou dubbel werk zijn. 
