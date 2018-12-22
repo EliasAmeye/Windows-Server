@@ -20,24 +20,57 @@
 
 ## Configuratie
 
-1) De eerste stap is altijd de computernaam instellen, hiervoor gebruiken we het commando `Rename-Computer -NewName ServerDC1`
-2) De computernaam instellen komt altijd gepaard met een restart: `Restart-Computer -Force`
-3) `install-windowsfeature AD-Domain-Services -IncludeManagementTools`
-4) `Install-ADDSForest -DomainName keanys.gent -Force`
+### Manuele configuratie
+
+1) Hernoem de computer
+  * De eerste stap is altijd de computernaam instellen, hiervoor gebruiken we het commando `Rename-Computer -NewName ServerDC1`
+  * De computernaam instellen komt altijd gepaard met een restart: `Restart-Computer -Force`
+2) TCP/IP instellingen
+  * We stellen het ip van de netwerkaddapter in het host-only netwerk, `Ethernet 2`, in op 192.168.1.1: 
+    `netsh interface ip set address "Ethernet 2" static 192.168.1.1 255.255.255.0 `
+  * We stellen de DNS server in op zichzelf:
+    `Set-DnsClientServerAddress -InterfaceAlias Ethernet -ServerAddresses 192.168.1.1`
+      * Controlleren met `Get-DnsClientServerAddress`:
+      ```
+      PS C:\Users\Administrator> Get-DnsClientServerAddress
+
+      InterfaceAlias               Interface Address ServerAddresses
+                                   Index     Family
+      --------------               --------- ------- ---------------
+      Ethernet                             3 IPv4    {192.168.1.1}
+      Ethernet                             3 IPv6    {::1}
+      Ethernet 2                           7 IPv4    {127.0.0.1}
+      Ethernet 2                           7 IPv6    {::1}
+      ```
+    
+3) Installeer AD DS
+  * Volgend commando: `install-windowsfeature AD-Domain-Services -IncludeManagementTools` installeert de AD-Domain_Services.
+  * `Install-ADDSForest -DomainName keanys.gent -InstallDns -Force` installeert ADDSForest met domain name `keanu.gent` en configureerd de dns server.
+
+4) DHCP
+  * Geef de server rechten om DHCP server te zijn in het domain: `Add-DhcpServerInDC`
+    * We kunnen dit controlleren met `Get-DhcpServerInDC`
+    ```
+    PS C:\Users\Administrator> Get-DhcpServerInDC
+
+    IPAddress            DnsName
+    ---------            -------
+    192.168.1.1          serverdc1.keanys.gent
+    ```
+  * 
+  * 
 
 Get-DhcpServerInDC
 Get-DhcpServerv4Scope
 Get-DhcpServerv4OptionValue
 Get-Service dhcpserver
 
-### Manuele configuratie
-
 ### Script
 Uit de manuele configuratie kunnen we nu een script maken. De commando's zijn hierboven al uitgelegd dus dit nog eens doen in deze sectie zou dubbel werk zijn. 
 Het script is te vinden in [/scripts/DC1_setup.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_setup.ps1) en met gebruik van comments worden alle stappen nog kort uitgelegd.
 
 
-Admin Password: Ke3anu
+Admin Password: K3anu
 
 ## Resources:
 
