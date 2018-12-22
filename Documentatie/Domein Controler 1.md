@@ -49,7 +49,7 @@
 
 4) DHCP
   * Geef de server rechten om DHCP server te zijn in het domain: `Add-DhcpServerInDC`
-    * We kunnen dit controlleren met `Get-DhcpServerInDC`
+    * We kunnen dit controlleren met `Get-DhcpServerInDC`:
     ```
     PS C:\Users\Administrator> Get-DhcpServerInDC
 
@@ -57,19 +57,47 @@
     ---------            -------
     192.168.1.1          serverdc1.keanys.gent
     ```
-  * 
-  * 
+  * `Add-DhcpServerv4Scope -name "keanysClients" -StartRange 192.168.1.20 -EndRange 192.168.1.200 -SubnetMask 255.255.255.0` voegt een nieuwe dhcp scope toe voor de clients. De range specifieerd welke IP addressen de dhcp server mag toe wijzen aan zijn clients.
+    * Controlleren met `Get-DhcpServerv4Scope`:
+    ```
+    PS C:\Users\Administrator> Get-DhcpServerv4Scope
 
-Get-DhcpServerInDC
-Get-DhcpServerv4Scope
-Get-DhcpServerv4OptionValue
-Get-Service dhcpserver
+    ScopeId         SubnetMask      Name           State    StartRange      EndRange        LeaseDuration
+    -------         ----------      ----           -----    ----------      --------        -------------
+    192.168.1.0     255.255.255.0   keanysClients  Active   192.168.1.20    192.168.1.200   8.00:00:00
+    ```
+  * `Set-DhcpServerv4OptionValue -Router 192.168.1.1 -DnsServer 192.168.1.1` stelt de router en dns server in voor dhcp.
+    * Controlleren met `Get-DhcpServerv4OptionValue`:
+    ```
+    PS C:\Users\Administrator> Get-DhcpServerv4OptionValue
+
+    OptionId   Name            Type       Value                VendorClass     UserClass       PolicyName
+    --------   ----            ----       -----                -----------     ---------       ----------
+    3          Router          IPv4Add... {192.168.1.1}
+    6          DNS Servers     IPv4Add... {192.168.1.1}
+    ```
+  * Herstart de dhcp server zodat verandering toegepast worden: `Restart-Service dhcpserver`
+    * Controlleer of de service correct is herstart en running is met `Get-Service dhcpserver`:
+    ```
+    PS C:\Users\Administrator> Get-Service dhcpserver
+
+    Status   Name               DisplayName
+    ------   ----               -----------
+    Running  dhcpserver         DHCP Server
+    ```
 
 ### Script
 Uit de manuele configuratie kunnen we nu een script maken. De commando's zijn hierboven al uitgelegd dus dit nog eens doen in deze sectie zou dubbel werk zijn. 
-Het script is te vinden in [/scripts/DC1_setup.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_setup.ps1) en met gebruik van comments worden alle stappen nog kort uitgelegd.
+De scripts zijn te vinden in [/scripts/DC1_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Hostname&IP.ps1) en [/scripts/DC1_Domain&DHCP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain&DHCP.ps1). Met gebruik van comments worden alle stappen nog kort uitgelegd.
 
+Volgorde van uitvoeren:
 
+1) [DC1_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Hostname&IP.ps1)
+2) [DC1_Domain&DHCP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain&DHCP.ps1)
+
+De reden waarom er twee scripts nodig zijn is omdat de server moet herstarten nadat de hostname veranderd is. Anders kan er niet verder gegaan worden met het tweede script waar AD DS geïnstalleerd wordt.
+
+## Extra
 Admin Password: K3anu
 
 ## Resources:
