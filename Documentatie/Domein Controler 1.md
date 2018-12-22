@@ -102,20 +102,32 @@
     ```
 
 5) Routing en NAT
-Install-windowsFeature Routing -IncludeManagementTools -Restart
+  * Installeer de windows feature `Routing` en voer een restart uit als dit nodig is: `Install-windowsFeature Routing -IncludeManagementTools -Restart` 
 
+* Configureer NAT:
+  ```
+  Install-RemoteAccess -VpnType Vpn
 
-write-host "Configuring nat"
-Install-RemoteAccess -VpnType Vpn
+  netsh routing ip nat install
 
-netsh routing ip nat install
+  netsh routing ip nat add interface Ethernet
+  netsh routing ip nat set interface Ethernet mode=full
 
-netsh routing ip nat add interface Ethernet
-netsh routing ip nat set interface Ethernet mode=full
+  netsh routing ip nat add interface "Ethernet 2"
+  ```
+  De Ethernet interface moet volledige address en port translation krijgen omdat dit de NAT interface is. Ethernet 2 is de host-only interface en is voor ons private netwerk.
+    * Controlleer de nat configuratie:
+    ```
+    PS C:\Users\Administrator> netsh routing ip nat show interface
 
-netsh routing ip nat add interface "Ethernet 2"
+    NAT Ethernet Configuration
+    ---------------------------
+    Mode              : Address and Port Translation
 
-netsh routing ip nat show interface
+    NAT Ethernet 2 Configuration
+    ---------------------------
+    Mode              : Private Interface
+    ```
     
 
 ### Script
@@ -125,7 +137,7 @@ De scripts zijn te vinden in [/scripts/DC1_Hostname&IP.ps1](https://github.com/K
 Volgorde van uitvoeren:
 
 1) [DC1_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Hostname&IP.ps1)
-2) [DC1_Domain&DHCP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain&DHCP.ps1)
+2) [DC1_Domain&DHCP&NAT.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain&DHCP&NAT.ps1)
 
 De reden waarom er twee scripts nodig zijn is omdat de server moet herstarten nadat de hostname veranderd is. Anders kan er niet verder gegaan worden met het tweede script waar AD DS geïnstalleerd wordt.
 
@@ -135,3 +147,5 @@ Admin Password: K3anu
 ## Resources:
 
 - https://docs.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-deploy-wps
+- https://docs.microsoft.com/en-us/powershell/module/
+- Cursus Win 2016
