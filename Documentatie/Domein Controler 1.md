@@ -25,7 +25,11 @@
 1) Hernoem de computer
   * De eerste stap is altijd de computernaam instellen, hiervoor gebruiken we het commando `Rename-Computer -NewName ServerDC1`
   * De computernaam instellen komt altijd gepaard met een restart: `Restart-Computer -Force`
-2) TCP/IP instellingen
+  
+2) Tijdzone instellen
+  * De tijdzone kunnen we instellen met het volgende commando: `Set-TimeZone -Name "Romance Standard Time"`. Dit zal direct de tijd juist zetten.
+  
+3) TCP/IP instellingen
   * We stellen het ip van de netwerkaddapter in het host-only netwerk, `Ethernet 2`, in op 192.168.1.1: 
     `netsh interface ip set address "Ethernet 2" static 192.168.1.1 255.255.255.0 `
   * We stellen de DNS server in op zichzelf:
@@ -58,11 +62,11 @@
     ReorderedIPAddress : {193.190.173.1, 8.8.8.8, fec0:0:0:ffff::2, fec0:0:0:ffff::3...}
     ```
     
-3) Installeer AD DS
+4) Installeer AD DS
   * Volgend commando: `install-windowsfeature AD-Domain-Services -IncludeManagementTools` installeert de AD-Domain_Services.
   * `Install-ADDSForest -DomainName keanys.gent -InstallDns -Force` installeert ADDSForest met domain name `keanu.gent` en configureerd de dns server.
 
-4) DHCP
+5) DHCP
   * Geef de server rechten om DHCP server te zijn in het domain: `Add-DhcpServerInDC`
     * We kunnen dit controlleren met `Get-DhcpServerInDC`:
     ```
@@ -101,7 +105,7 @@
     Running  dhcpserver         DHCP Server
     ```
 
-5) Routing en NAT
+6) Routing en NAT
   * Installeer de windows feature `Routing` en voer een restart uit als dit nodig is: `Install-windowsFeature Routing -IncludeManagementTools -Restart` 
 
 * Configureer NAT:
