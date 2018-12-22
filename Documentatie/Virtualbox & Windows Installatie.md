@@ -3,7 +3,7 @@
 ## Windows Server 2016 machine aanmaken in virualbox
 
 1) Gebruik Ctrl+N
-![Virtualbox First Steps 1](Windows-Server/Screenshots/FirstSteps/FirstSteps1.png)
+![Virtualbox First Steps 1](https://github.com/KeanuNys/Windows-Server/Screenshots/FirstSteps/FirstSteps1.png)
 2)
 ![Virtualbox First Steps 2](Windows-Server/Screenshots/FirstSteps/FirstSteps2.png)
 3)
