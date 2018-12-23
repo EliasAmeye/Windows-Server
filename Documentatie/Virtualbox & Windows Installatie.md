@@ -81,7 +81,7 @@ Note: Als je niet weet welke te selecteren kan je dit controlleren bij *Algemene
 2) Open Windows Explorer en ga naar *This PC*. Open *CD Drive (D:) Virtualbox Guest Additions*.
 ![Guest Additions Screenshot 2](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions2.png)
 
-3) Voer VBoxWindowsAdditions.exe uit.
+3) Voer *VBoxWindowsAdditions.exe* uit.
 ![Guest Additions Screenshot 3](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions3.png)
 
 4) Klik bij elke stap op *Next* en *Install* tot de installatie klaar is.
@@ -92,7 +92,6 @@ Note: Als je niet weet welke te selecteren kan je dit controlleren bij *Algemene
 
 6) Na het herstarten zal de server in fullscreen staan zodat er makkelijker gewerkt kan worden. Klik nogmaals op *Apparaten* uit het taakmenu en klik op *Gedeeld klembord* en selecteer *bidirectioneel*. Nu kan kopieëren en plakken van host naar VM en omgekeerd gebruikt worden.
 ![Guest Additions Screenshot 6](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions6.png)
-GuestAdditions1.png
 
 
 
