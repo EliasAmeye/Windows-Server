@@ -3,20 +3,14 @@
 ## Instalatie
 
 ### VirtualBox Configuratie
+DC1 heeft een speciale stap bij het opzetten in VirtualBox omdat deze twee netwerkaddapters moet hebben. Eén van deze is voor het interne netwerk en is dus met gevolg een Host-Only Ethernet Adapter zoals bij de andere machines. De tweede adapter, die de andere machines niet hebben, is een NAT adapter. Deze NAT adapter zal ervoor zorgen dat er internet toegang is door de host. Volgende stappen moeten dus doorlopen worden:
+
 - Maak een nieuwe VM aan en noem hem `Server1`
-- Ga door de standaard configuratiestappen
+- Ga door de standaard configuratiestappen zoals beschreven in de documentatie over VirtualBox
 - Ga naar de instellingen van de nieuwe machine 
-- Gebruik een windows server 2016 .iso als boot drive onder `Opslag`.
 - Klik op `Netwerk` om de netwerkinstellingen aan te passen en zorg voor de volgende configuratie:
   - Adapter 1 : NAT
   - Adapter 2 : Host-Only (met 192.168.1.1/24 netwerk)
-
-### Windows Server instalatie
-- Start de nieuwe virtuele machine en voer de instalatie uit.
-- Installeer Guest Additions:
-  - Klik op `Apparaten` in de menubalk en dan `Invoegen Guest Additions CD-image...`
-  - Ga naar de ingevoerde CD en voer `VBoxWindowsAdditions.exe` uit.
-  - Activeer Gedeeld klembord zodat we uitvoer van commando's makkelijk kunnen kopieëren
 
 ## Configuratie
 
@@ -134,7 +128,7 @@
     ```
     
 
-### Script
+### Automatisatie door middel van scripts
 Uit de manuele configuratie kunnen we nu een script maken. De commando's zijn hierboven al uitgelegd dus dit nog eens doen in deze sectie zou dubbel werk zijn. 
 De scripts zijn te vinden in [/scripts/DC1_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Hostname&IP.ps1) en [/scripts/DC1_Domain&DHCP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain&DHCP.ps1). Met gebruik van comments worden alle stappen nog kort uitgelegd.
 
