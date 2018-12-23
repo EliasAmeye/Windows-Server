@@ -43,35 +43,56 @@ Note: Als je niet weet welke te selecteren kan je dit controlleren bij *Algemene
 ## Windows Server 2016 instalatie
 
 
-1)
+1) De eerste stap in de Windows Setup van Windows Server 2016 is heet instellen van de taal. Het is een goede gewoonte om de taal in het engels te laten staan. *Time and currency format* zetten gaan we wel op *Dutch (Belgium)* zetten, en niet op Catalan zoals op de screenshot hier onder, om verwaring met datums te vermijden. Voor *Keyboard or input method* selecteren we *Belgian (Period)* om azerty te kunnen gebruiken. Klik op *Next*. 
 ![Windows Instalatie Screenshot 1](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie1.png)
 
-2)
+2) Klik op *Install now*.
 ![Windows Instalatie Screenshot 2](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie2.png)
 
-3)
+3) Vul een geldige product key in en klik vervolgens op *Next*. Om voor de hand liggende redenen heb ik de licence key niet in de screenshot getoond.
 ![Windows Instalatie Screenshot 3](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie3.png)
 
-4)
+4) Selecteer *Windows Server 2016 Standard (Desktop Experience)* zodat we een grafische interface kunnen gebruiken. Klik op *Next*.
 ![Windows Instalatie Screenshot 4](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie4.png)
 
-5)
+5) Lees de LICENCE TERMS en accepteer ze door de checkbox aan te vinken om verder te kunnen gaan. Klik op *Next*.
 ![Windows Instalatie Screenshot 5](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie5.png)
 
-6)
+6) Klik op *Custom Install Wondows only (advanced)* aangezien we toch een nieuwe versie van Windows installeren en geen Upgrade willen.
 ![Windows Instalatie Screenshot 6](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie6.png)
 
-7)
+7) In deze stap zou alles al correct moeten staan als de stappen over Virtual Box hierboven zijn gevolgd. Windows zal geïnstalleerd worden op Drive 0. Klik op *Next*.
 ![Windows Instalatie Screenshot 7](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie7.png)
 
-8)
+8) In deze stap moet er niks gebeurt worden, ookal duurt deze wel het langst van allemaal. Wacht tot de installatie compleet is, het scherm zal automatisch naar de volgende stap gaan wanneer dit zo is.
 ![Windows Instalatie Screenshot 8](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie8.png)
 
-9)
+9) Kies een administrator wachtwoord en klik vervolgens op *Finish* om de instalatie te voltooien.
 ![Windows Instalatie Screenshot 9](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie9.png)
 
-10)
+10) De installatie is klaar en er kan nu ingelogd worden op het Administrator account met het wachtwoord dat gekozen is in de vorige stap.
 ![Windows Instalatie Screenshot 10](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/WindowsInstalatie/WindowsInstalatie10.png)
+
+## Guest Additions
+
+1) Klik in het taakmenu vanboven op *Apparaten* en vervolgens op *Invoegen Guest Additions CD-image...*
+![Guest Additions Screenshot 1](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions1.png)
+
+2) Open Windows Explorer en ga naar *This PC*. Open *CD Drive (D:) Virtualbox Guest Additions*.
+![Guest Additions Screenshot 2](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions2.png)
+
+3) Voer VBoxWindowsAdditions.exe uit.
+![Guest Additions Screenshot 3](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions3.png)
+
+4) Klik bij elke stap op *Next* en *Install* tot de installatie klaar is.
+![Guest Additions Screenshot 4](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions4.png)
+
+5) Selecteer *Reboot now* als de installatie klaar is. 
+![Guest Additions Screenshot 5](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions5.png)
+
+6) Na het herstarten zal de server in fullscreen staan zodat er makkelijker gewerkt kan worden. Klik nogmaals op *Apparaten* uit het taakmenu en klik op *Gedeeld klembord* en selecteer *bidirectioneel*. Nu kan kopieëren en plakken van host naar VM en omgekeerd gebruikt worden.
+![Guest Additions Screenshot 6](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/GuestAdditions/GuestAdditions6.png)
+GuestAdditions1.png
 
 
 
