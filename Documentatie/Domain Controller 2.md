@@ -3,14 +3,7 @@
 ## Instalatie
 
 ### VirtualBox Configuratie
-DC1 heeft een speciale stap bij het opzetten in VirtualBox omdat deze twee netwerkaddapters moet hebben. Eén van deze is voor het interne netwerk en is dus met gevolg een Host-Only Ethernet Adapter zoals bij de andere machines. De tweede adapter, die de andere machines niet hebben, is een NAT adapter. Deze NAT adapter zal ervoor zorgen dat er internet toegang is door de host. Volgende stappen moeten dus doorlopen worden:
-
-- Maak een nieuwe VM aan en noem hem `Server1`
-- Ga door de standaard configuratiestappen zoals beschreven in de documentatie over VirtualBox
-- Ga naar de instellingen van de nieuwe machine 
-- Klik op `Netwerk` om de netwerkinstellingen aan te passen en zorg voor de volgende configuratie:
-  - Adapter 1 : NAT
-  - Adapter 2 : Host-Only (met 192.168.1.1/24 netwerk)
+- Ga door de standaard configuratiestappen zoals beschreven in de [documentatie over VirtualBox](https://github.com/KeanuNys/Windows-Server/blob/master/Documentatie/Virtualbox%20%26%20Windows%20Installatie.md)
 
 ## Configuratie
 
