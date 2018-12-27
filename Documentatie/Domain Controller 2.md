@@ -91,6 +91,7 @@ De reden waarom er voor DC2 drie scripts nodig zijn is omdat de server nu niet a
 
 ## Extra
 Admin Password: K3anu
+
 SafeMode Password: K3anuSafeMode
 
 ## Resources:
