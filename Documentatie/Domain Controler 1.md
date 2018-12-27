@@ -131,12 +131,12 @@ DC1 heeft een speciale stap bij het opzetten in VirtualBox omdat deze twee netwe
 
 ### Automatisatie door middel van scripts
 Uit de manuele configuratie kunnen we nu een script maken. De commando's zijn hierboven al uitgelegd dus dit nog eens doen in deze sectie zou dubbel werk zijn. 
-De scripts zijn te vinden in [/scripts/DC1_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Hostname&IP.ps1) en [/scripts/DC1_Domain&DHCP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain&DHCP.ps1). Met gebruik van comments worden alle stappen nog kort uitgelegd.
+De scripts zijn te vinden in [/scripts/DC1_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Hostname%26IP.ps1) en [/scripts/DC1_Domain&DHCP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain%26DHCP%26NAT.ps1). Met gebruik van comments en `write-host`'s worden alle stappen nog kort uitgelegd.
 
 Volgorde van uitvoeren:
 
-1) [DC1_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Hostname&IP.ps1)
-2) [DC1_Domain&DHCP&NAT.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain&DHCP&NAT.ps1)
+1) [DC1_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Hostname%26IP.ps1)
+2) [DC1_Domain&DHCP&NAT.ps1](https://github.com/KeanuNys/Windows-Server/scripts/DC1_Domain%26DHCP%26NAT.ps1)
 
 De reden waarom er twee scripts nodig zijn is omdat de server moet herstarten nadat de hostname veranderd is. Anders kan er niet verder gegaan worden met het tweede script waar AD DS geïnstalleerd wordt.
 
