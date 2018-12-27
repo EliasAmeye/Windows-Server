@@ -79,7 +79,7 @@
 
 ### Automatisatie door middel van scripts
 Uit de manuele configuratie kunnen we nu een script maken. De commando's zijn hierboven al uitgelegd dus dit nog eens doen in deze sectie zou dubbel werk zijn. 
-De scripts zijn te vinden in [/scripts/DC2_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/blob/master/scripts/DC2_Hostname%26IP.ps1), [/scripts/DC2_Domain.ps1](https://github.com/KeanuNys/Windows-Server/blob/master/scripts/DC2_Domain.ps1) en [/scripts/DC2_DHCP.ps1](https://github.com/KeanuNys/Windows-Server/blob/master/scripts/DC2_DHCP.ps1). Met gebruik van comments worden alle stappen nog kort uitgelegd.
+De scripts zijn te vinden in [/scripts/DC2_Hostname&IP.ps1](https://github.com/KeanuNys/Windows-Server/blob/master/scripts/DC2_Hostname%26IP.ps1), [/scripts/DC2_Domain.ps1](https://github.com/KeanuNys/Windows-Server/blob/master/scripts/DC2_Domain.ps1) en [/scripts/DC2_DHCP.ps1](https://github.com/KeanuNys/Windows-Server/blob/master/scripts/DC2_DHCP.ps1). Met gebruik van comments en `write-host`'s worden alle stappen nog kort uitgelegd.
 
 Volgorde van uitvoeren:
 
