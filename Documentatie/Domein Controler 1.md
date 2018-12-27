@@ -61,6 +61,7 @@ DC1 heeft een speciale stap bij het opzetten in VirtualBox omdat deze twee netwe
   * `Install-ADDSForest -DomainName keanys.gent -InstallDns -Force` installeert ADDSForest met domain name `keanu.gent` en configureerd de dns server.
 
 5) DHCP
+  * Installeer DHCP op de server met `Install-WindowsFeature DHCP -IncludeManagementTools`.
   * Geef de server rechten om DHCP server te zijn in het domain: `Add-DhcpServerInDC`
     * We kunnen dit controlleren met `Get-DhcpServerInDC`:
     ```
