@@ -121,32 +121,165 @@ Als het *Exchange-beheercentrum* weergegeven wordt in de browser wil dit zeggen 
 
 ### Configuratie Microsoft Exchange 2016
 
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(97).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(98).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(99).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(90).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(91).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(92).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(93).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(94).png)
+In deze sectie gaan we over de essentiële stappen om exchange te configureren en klaar te maken voor gebruik op het internet.
 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(95).png)
+Log in als administrator van het domein.
 
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(96).png)
-
+#### Een gebruikerspostvak toevoegen
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(97).png)
-
+Eens ingelogd worden we begroet met bovenstaand scherm. Hierin zal alle belangrijke configuratie gebeuren. Het eerste wat we gaan doen is een gebruikerspostvak toevoegen. Klik in de linker navigatielijst op *geadresseerden* en dan op *postvakken* vanboven. 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(98).png)
-
+Klik op het *plus-icoontje* en vervolgens op *Gebruikerspostvak*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(99).png)
+Selecteer een bestaande gebruiker in AD waarvoor je een postvak wil aanmaken of klik op *Nieuwe gebruiker* om een nieuwe gebruiker aan te maken. In dit voorbeeld gaan we een nieuwe gebruiker aanmaken, dit zal de gebruiker ook automatisch toevoegen in AD. 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(100).png)
+Klik op *Bladeren...* en selecteer de *Users* OU uit je domein. Klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(102).png)
+Vul de nodige velden in en kies een aanmeldingsnaam en wachtwoord waarmee de gebruiker nadien kan inloggen in zijn postvak. Klik op *Opslaan*. 
 
+De gebruiker is nu toegevoegd, herhaal deze stappen tot alle gebruikers die een gebruikerspostvak nodig hebben toegevoegd zijn.
+
+#### Interne en Externe URL's configureren (Virtuele mappen)
+De virtuele mappen definiëren hoe de URL's voor de verschillende mailtoepassingen eruit zullen zien voor zoweel intern en extern gebruik. 
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(113).png)
+Klik op *servers* in het linker menu en vervolgens op *Virtuele mappen*. Dubbelklik op *owa (Default Web Site)*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(114).png)
+Pas het veld voor de Interne en Externe URL aan. In dit geval willen we dat voor intern en extern telkens dezelfde URL gebruikt wordt. We zetten beide op `https://mail.keanys.gent/owa`. Klik op *Opslaan*. 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(115).png)
+Als dit de eerste virtuele map is waarvan de URL aangepast wordt (tussen owa en ecp), zal er een waarschuwing weergegeven worden dat dezelfde aanpassing bij ECP ook moet worden toegepast. Dit zullen we dus ook doen. Klik op *OK*. 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(116).png)
+Dubbelklik op ecp en verander de URL's naar wens: `https://mail.keanys.gent/ecp`. Klik op *Opslaan* 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(117).png)
+Dubbelklik op Microsoft-Server-ActiveSync en verander de URL's naar wens: `https://mail.keanys.gent/Microsoft-Server-ActiveSync`. Klik op *Opslaan* 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(118).png)
+Dubbelklik op OAB en verander de URL's naar wens: `https://mail.keanys.gent/OAB`. Klik op *Opslaan* 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(119).png)
+Dubbelklik op EWS en verander de URL's naar wens: `https://mail.keanys.gent/EWS/Exchange.asmx`. Klik op *Opslaan* 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(120).png)
+Om de URL's voor Outlook Anywhere in te stellen klik je op servers vanboven en dubbelklik daarna op de naam van de server.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(121).png)
+Verander de URL's naar wens: `mail.keanys.gent`. Klik op *Opslaan*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(122).png)
+Klik op *OK* als er een waarschuwing opkomt over Exchange Server 2013. Dit is voor ons niet belangrijk.
+
+#### SSL and URL Redirection
+Het zou gemakkelijk zijn als een gebruiker niet elke keer `https://mail.keanys.gent/owa` hoefde in te tikken elke keer hij zijn gebruikerspostvak wil openen. Gelukkig is er een manier om dit gemakkelijker te maken. Met URL Redirection kan ervoor gezorgd worden dat er automatisch https gebruikt wordt en de gebruiker doorgestuurd wordt naar de juiste subdirectory wanneer hij slechts `mail.keanys.gent` intikt. 
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(123).png)
+In de server manager, klik op *Tools* en vervolgens op *Internet Information Services (IIS) Manager*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(124).png)
+In het linker navigatiepaneel, klik op je domein, dan op Sites en op Default Web Site. Dubbelklik *SSL Settigns*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(125).png)
+Uncheck *Require SSL* en klik op *Apply* om de veranderingen toe te passen. (Of klik op een andere map en op Yes om op te slaan.) 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(126).png)
+Doe hetzelfde voor *Exchange Back End*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(127).png)
+Uncheck *Require SSL* en klik op *Apply*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(128).png)
+Terug bij *Default Web Site*, klik op *HTTP Redirect*. 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(129).png)
+Check *Redirect requests to this destination:* en *Only redirect requests to content in this directory (not subdirectories)*. Vul het owa adres in: `https://mail.keanys.gent/owa` en klik op *Apply*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(130).png)
+Doe hetzelfde voor *Exchange Back End*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(131).png)
+Check *Redirect requests to this destination:* en *Only redirect requests to content in this directory (not subdirectories)*. Vul het owa adres in: `https://mail.keanys.gent/owa` en klik op *Apply*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(132).png)
+Uncheck *Redirect requests to this destination:* in *HTTP Redirect* voor alle subdirectories van *Default Web Site*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(133).png)
+Doe hetzelfde voor *Exchange Back End*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(134).png)
+Ecp is langs waar alle configuratie door de administrators gedaan wordt. Dit willen we **NIET** via http doen maar hiervoor willen absoluut https gebruiken voor de veiligheid van de server. Check *Require SSL* in de *SSL Settings* van *ecp*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(135).png)
+Doe hetzelfde voor *Exchange Back End*.
+
+#### E-mailstroom
+Er moeten nog een paar kleine veranderingen gebeuren om de Exchange Server te kunnen gebruiken om e-mails te kunnen ontvangen en versturen buiten ons eigen domein. In deze sectie zullen we over de stappen gaan die daarvoor moeten gebeuren.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(143).png)
+Klik op *e-mailstroom* uit het linker menu en vervolgens op *connectors ontvangen* vanboven. Dubbelklik op *Client Frontend ...* en daarna op *beveiliging*. Check *Anonieme gebruikers* zodat je van iedereen mails kan ontvangen. Klik op *Opslaan*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(144).png)
+Klik op *Connectors verzenden* en op het *plus-icoontje* om een nieuwe connector toe te voegen.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(145).png)
+Geef een naam op voor de nieuwe Connectors en selecteer *internet*. Klik op *Volgende*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(146).png)
+Selecteer *MX-record gelinket aan het domein van de ontvanger* en klik op *Volgende*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(147).png)
+Klik op het *plus-icoontje* om een adresruimte toe te voegen.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(148).png)
+Voer als type *SMTP* in en als FQDN '\*'. Klik op *Opslaan*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(149).png)
+Klik op *Volgende*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(150).png)
+Klik op het *plus-icoontje* om een bronserver toe te voegen. Selecteer de server en klik op *toevoegen ->* en op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(151).png)
+Klik op *Voltooien*.
+
+### User testing van de mail server
+Om te testen of de mail server geconfigureerd is zoals we willen zullen we inloggen in het gebruikerspostvak dat we hierboven aangemaakt hebben.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(136).png)
+In de browser gaan we naar `mail.keanys.gent/` om te testen of we doorgestuurd worden naar de juiste locatie.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(137).png)
+We worden doorgestuurd naar `https` en komen direct in de `/owa` directory uit. We krijgen wel een waarschuwing over een onveilig SSL Certificate en een rode zoekbalk omdat we geen geldig en signed Certificate hebben. Dit kunnen we negeren voor deze opdracht.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(138).png)
+Nu gaan we proberen inloggen in het gebruikerspostvak van de nieuwe gebruiker die we aangemaakt hebben. Gebruik als gebruikersnaam `alias@domain.name` en klik op *aanmelden*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(139).png)
+Als de authenticatie gelukt is zullen we gevraagd worden een taal en een tijdszone te selecteren. Klik op *Opslaan*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(140).png)
+We zijn succesvol ingelogd in het gebruikerspostvak. Om mails te kunnen ontvangen moeten er wel nog een paar records aan de DNS server toegevoegd worden. 
+
+
+### DNS Configuratie voor de mail server.
+E-mails naar ons domein komen toe bij de Domain Controler (DC1). De DNS server (ook DC1) moet daarom weten wie de mail server is in het domein. In deze sectie bespreken we de CNAME, MX en PTR records.
+
+#### CNAME record
+Een CNAME record dient om een alias in te stellen voor een A record. Zo kunnen we mail.keanys.gent als alias nemen voor SERVERSQLEX.keanys.gent.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(103).png)
+Open de DNS Manager op de DNS server. Navigeer naar `SERVER > Forward Loopup Zones > Domain`. Rechterklik op de domein naam *,hier keanys.gent,* en klik op *New Alias (CNAME)...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(104).png)
+Voer *mail* in als Alias en klik op *Browse...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(105).png)
+Selecteer de mail server in het domein en klik op *OK*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(106).png)
+Klik op *OK* om het record toe te voegen.
+
+#### MX record
+Een MX record geeft aan welke server in een domein verantwoordelijk is voor het ontvangen en versturen van e-mails. Dit is belangrijk voor het ontvangen van mails zodat er een MX lookup kan gedaan worden. 
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(107).png)
+Rechterklik op de domein naam *,hier keanys.gent,* en klik op *New Mail Exchanger (MX)...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(108).png)
+Klik op *Browse...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(109).png)
+Selecteer de mail server in her domein en klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(111).png)
+Klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(112).png)
+
+#### PTR record
+Een PTR record is voor reverse lookups.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(152).png)
+Rechterklik op *Reverse Lookup Zones* en klik op *New Zone...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(153).png)
+Klik op *Next >*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(154).png)
+Selecteer *Primary zone* en klik op *Next >*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(155).png)
+Selecteer *To all DNS servers running on domain controller in this domain: keanys.gent* en klik op *Next >*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(156).png)
+Selecteer *IPv4 Reverse Lookup Zone* en klik op *Next >*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(157).png)
+Voer get Network ID `192.168.1` in en klik op *Next >*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(158).png)
+Selecteer *Allow only secure dynamic updates (recommended for Active Directory)* en klik op *Next >*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(159).png)
+Klik op *Finish*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(160).png)
+De DNS-table zal nu automatisch updaten. Dit kan een tijdje duren of een restart kan nodig zijn. Er kan ook manueel een record toe gevoegd worden. Er kan nu een reverse lookup gedaan worden. 
 
 ## Extra
 Admin Password: K3anu
@@ -158,3 +291,5 @@ Keanu Nys Mail Password: K3anuK3anu
 - https://docs.microsoft.com/en-us/windows-server/networking/technologies/
 - https://docs.microsoft.com/en-us/powershell/module/
 - Cursus Win 2016
+- Cursus Exchange 2013
+- www.mustbegeek.com
