@@ -128,6 +128,7 @@ Klik op *Next*.
 Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(202).png)
 Selecteer volgende Role Services:
+
   1) Common HTTP Features –Default Document, Static Content
   2) Application Development –ASP.NET 3.5,.NET Extensibility 3.5, ASP.NET 4.5,.NET Extensibility 4.5, ISAPI extensions
   3) Security –Windows Authentication
@@ -332,49 +333,338 @@ Ook op de SCCM server voeren we `gpupdate /force` uit. Vervolgens kunnen we dit 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(305).png)
 Links navigeren we naar `Computer Configuration > Administrative Templates > Extra Registry Settings`. Hier kunnen we de aangemaakte group policies zien en het efit dat ze active zijn. 
 
-Nu alle prerequisites succesvol afgerond zijn kun er begonnen worden met de effectieve installatie van SCCM 2012. 
 
 #### Installing SCCM 2012
+Nu alle prerequisites succesvol afgerond zijn kun er begonnen worden met de effectieve installatie van SCCM 2012. 
 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(306).png)
+Voer de SCCM installatieschijf in en open de *splash* applicatie.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(307).png)
+Klik op install om de installatie te starten.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(308).png)
+Met alle informatie rekeninghoudend, klikken we op *Next* om te beginnen.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(309).png)
+We willen een SCCM primary site installeren. Klik op *Next*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(310).png)
+Als je een product key hebt, voer deze hier in, anders selecteer je de evaluation edition. Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(311).png)
+Lees en accepteer alle License Terms en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(312).png)
+We hebben nog geen files gedownload dus selecteren we de eerste optie en geven we een locatie mee waar de files kunnen gedownload worden. Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(313).png)
+Slecteer de gewenste talen voor de server. We gaan enkel Engels installeren. Klik op *Next*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(314).png)
+Kies nu de talen voor de clients en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(315).png)
+Voer een Site code en name in naar wens. We willen ook de console aangezien we toch niet remote willen werken. Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(316).png)
+Selecteer *Install the primary site as a stand-alonde site* en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(317).png)
+Klik op *Yes* als er een pop-up verschijnt.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(318).png)
+Bij deze stappen hoeft niks aangepast te worden en kan gewoon op *Next* geklikt worden.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(319).png)
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(320).png)
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(321).png)
+Selecteer *Configure the communication method on each site system role* en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(322).png)
+Check de boxes om zowel *management* en *distribution point* te installeren. Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(323).png)
+Lees en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(324).png)
+Selecteer *Yes, let's get connected* en geef een server op. We gaan de lokale server gebruiken. Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(325).png)
+Ga door de samenvatting om te controlleren of alles juist is en klik op *Next.* 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(326).png)
+Als alle Prerequisite Rules doorlopen zijn zonder probleem kan de installatie beginnen. Zorg dat je zeker voldoende tijd hebt en hou er rekening me dat de computer voor zeker een uur aan zal moeten blijven. Klik op *Begin Install.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(327).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(328).png)
+De installatie heeft 80 minuten geduurd en is succesvol afgerond. Klik op *Close* om de installer te sluiten.
 
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(329).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(330).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(331).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(332).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(333).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(334).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(335).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(336).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(337).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(338).png)
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(339).png)
 
 ### Configuratie SCCM 2012
+In deze sectie gaan we over de configuratie gaan specifiek voor deze opdracht. We zullen er voor zorgen dat er een client kan gedeployed worden met Windows 10, het mogelijk maken om updates te deployen en Adobe Reader deployen op de client. Daarnaast gaan we ook over wat best practice configurations gaan in het begin van een nieuwe SCCM server.
 
-...
+#### Discovery en Boundaries configureren
+
+In deze sectie zullen we er voor zorgen dat machines en servers in het domain kunnen ontdekt worden. Dit is het eerste wat we zullen doen, dus de eerste stap is het openen van SCCM.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(328).png)
+Als SCCM geopend is, open je in de linker navigatiebalk de tab *Administration*. Open *overview*, *Hierarchy Configuration* en klik op *Discovery Methods*. Dubbelklik op *Active Directory Forest Discovery*. 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(329).png)
+Vink alle checkboxes en sla op *Apply.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(330).png)
+Klik op *Yes* om zo snel mogelijk full discovery te runnen.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(331).png)
+Open nu *Active Directory Group Discovery* en vink *Enable Active Directory Group Discovery* aan. Klik daarna op *Add* en op *Location...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(333).png)
+Geef een naam op en een locatie. De locatie kan makelijk gevonden worden met de *Browse...* knop. Klik op *OK.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(334).png)
+Klik op *Apply* om toe te passen.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(335).png)
+Klik op *Yes* om zo snel mogelijk full discovery te runnen.
+
+Note: Enable op dezelfde manier *System* alsook *User* Discovery.
+
+#### Site System Roles installeren
+In deze sectie gaan we een paar Site System roles installeren. Dit zijn : Application Catalog web service point en website point, en Fallback Status Point. Later zullen we ook Software Update Point moeten installeren om updates te kunnen deployen.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(336).png)
+Navigeer naar `Administration > Overview > Site Configuration > Sites`. Rechterklik op de enige site en klik op *Add Site System Roles*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(337).png)
+Op de eerste pagina moet niks veranderd worden. Klik op *Next*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(338).png)
+We willen geen proxy gebruiken. Klik op *Next.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(339).png)
+Selecteer de gewenste Roles om te installeren. We kiezen Application Catalog web service point en website point, en Fallback Status Point. Klik op *Next* om verder te gaan.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(341).png)
+We houden de standaard instellingen voor de fallback status point en klikken op *Next.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(342).png)
+Hetzelfde geldt voor de Aplication Catalog. Klik op *Next.* 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(343).png)
+Klik op *Next*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(344).png)
+Kies een organisatie naam een een kleur. Deze zullen gebruikt worden voor de Application Catalog website. Klik op *Next*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(345).png)
+Lees de samenvatting en ga na of alles correct is. Klik op *Next* als dit het geval is.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(346).png)
+De installatie van de Roles is succesvol. Klik op *close* om de wizard te sluiten.
+
+#### Customize de Client Instellingen
+
+In deze sectie zullen we een paar custom client settings instellen. De standaard instellingen zijn zeer schappelijk, dus veel gaan we niet veranderen. We gaan toch proberen om voor zoveel mogelijk onderdeel iets aan te passen om zoveel mogelijk te proberen zien van SCCM.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(347).png)
+Net onder de *Site Configurations* van daarnet staan de *Client Settings*. Rechterklik hierop en klik vervolgens op *Create Custom Client Device Settings*. 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(348).png)
+ Selecteer alle onderdelen waarvan we de default settings willen aanpassen. In dit voorbeeld doen we er zeven.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(349).png)
+Geef een naam mee aan de custom settings zodat achteraf makkelijk terug kan worden gevonden welke custom settings wat doen. We gaan maar één custom settings maken en noemen het daarom gewoon *Custom Device Settings 1*. Klik nog **niet** op *OK*. Eerst willen we nog alle settings aanpassen. Dit doe je door naar de volgende tab te gaan in het linker menu. Klik op *Client Policy*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(350).png)
+We verlagen het interval naar 5 minuten. Klik op *Compliance Settings*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(351).png)
+Zet *Enable compliance ecaluation on clients* op *Yes*. Klik op *Computer Agent*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(352).png)
+In deze stap gaan we een Application Catalog website point instellen. Klik op *Set Website...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(353).png)
+Selecteer deze server als de *Application Catalog website point* en klik op *OK.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(354).png)
+Zorg ervoor dat de Application Catalog website trusted is in Internet Explorer en geef de organization name die weergegeven zal worden in. Ga naar *Computer Restart.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(355).png)
+We verlagen de eerste notification naar 60 minutes. Ga naar *Remote Tools*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(356).png)
+Klik op *Configure...* en check alle boxes om Remote Control aan te zetten. Klik op *OK*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(357).png)
+Zorg ervoor dat er toestemming gevraagd wordt om Remote Control te starten en klik op *Set Viewers...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(358).png)
+Vind de gebruikers of groepen die je toegang wil geven tot Remote Control met *Browse...* en *Advanced...*. Selecteer de accounts die je wil en klik op *OK*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(361).png)
+Klik op *OK* en ga naar *Software Deployment*. 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(362).png)
+Klik op *Schedule...* en stel de frequentie van de deployments in op 2 dagen.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(363).png)
+Klik op *Software Updates*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(364).png)
+We doen hetzelfde voor *Software Updates*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(365).png)
+Klik op *OK* als alle settings ingesteld zijn.
+
+#### Client Installatie (Push Installation)
+
+In deze sectie zullen we Automatic Sitewide Client Push Installation configureren.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(366).png)
+Ga terug naar *Site Configuration* en klik op *Sites*. Klik op *Client Installation Settings* in het menu vanboven en selecteer *Client Push Installation.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(367).png)
+Enable Automatic Sitewide Client Push Installation en check *Servers* en *Workstations*. Also choose to never install on a domain controller, unless specified.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(369).png)
+On the Accounts tab, create a new account.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(370).png)
+Klik op *Browse...* om een account te zoeken.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(371).png)
+Klik op *Find Now* om alle accounts weer te geven.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(372).png)
+We zullen, zoals altijd, het administrator account in het domein gebruiken. Klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(373).png)
+Klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(374).png)
+Klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(375).png)
+Klik op *Apply* om alle instellingen toe te passen.
+
+
+#### PXE, Boot Image en Software Distribution configureren.
+
+In deze sectie zullen we de configuratie doen om een Client te deployen met PXE.
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(378).png)
+Onder *Sites* van daarnet, open *Servers and Site System Roles* en dan *Distribution Point.* Klik vervolgens op *Properties* in de linker bovenhoek. 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(379).png)
+Ga naar de *PXE* tab en vink *Enable PXE support for clients* aan.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(380).png)
+Klik op *OK* als er een warning pop-up verschijnt.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(381).png)
+Vink de overige checkboxes aan en geef een wachtwoord in. We willen *geen* user device affinity maar wel op alle network interfaces antwoorden op PXE requests. Klik op *Apply* en *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(382).png)
+Open de *Software Library* tab in het linker navigatiemenu en navigeer naar `Overview > Operating Systems > Boot Images`. Rechterklik op de (x64) Boot Image en klik op *Properties*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(383).png)
+Vink *Enable command support* aan en klik op *Apply* om toe te passen. Klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(384).png)
+Klik op *Yes* als er een pop-up op komt.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(385).png)
+Er zal een nieuw venster openen. Klik op *Next.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(386).png)
+Als de wizard beeïndigd is, klik dan op *Close*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(387).png)
+Ga nu naar de *Data Sources* tab en zorg ervoor dat *Deploy this boot image from the PXE-enabled distribution point* is aangevinkt. Klik vervolgens op *Apply* en *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(388).png)
+Rechterklik nogmaals op de Boot Image en Distribute de Content.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(389).png)
+Klik op *Next.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(390).png)
+Voeg een Distribution Point toe door op *Add* en *Distribution Point* te klikken.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(391).png)
+Selecteer het Distribution Point en klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(392).png)
+Klik op *Next* om verder te gaan.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(393).png)
+Ga na of alles in orde is in de samenvatting en klik op *Next.*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(394).png)
+Klik op *Close* om de wizard te sluiten.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(395).png)
+We kunnen de status van het *Distributen* bekijken in de *Monitor* tab en navigeer naar `Overview > Distribution Status > Content Status`. Als we nu klikken op de Boot Image zien we dat de status *Success* is.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(396).png)
+Navigeer terug naar *Sites* onder de *Administration* tab en klik op *Configure Site Components* en vervolgends op *Software Distribution* in het menu bovenaan.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(397).png)
+Selecteer *Specify the account that accesses network locations*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(398).png)
+Voeg een *Existing Account* toe.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(399).png)
+Selecteer het account en klik op *OK*.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(400).png)
+Klik op *Apply* en *OK* om de veranderingen toe te passen.
+
+#### .....
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(401).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(402).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(403).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(404).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(405).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(406).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(407).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(408).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(409).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(410).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(411).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(412).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(413).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(414).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(415).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(416).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(417).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(418).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(419).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(420).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(421).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(422).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(423).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(424).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(425).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(426).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(427).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(428).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(429).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(430).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(431).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(432).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(433).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(434).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(435).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(436).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(437).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(438).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(439).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(440).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(441).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(442).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(443).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(444).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(445).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(446).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(447).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(448).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(449).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(450).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(451).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(452).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(453).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(454).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(455).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(456).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(457).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(458).png)
+
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(459).png)
+
 
 #### Een gebruikerspostvak toevoegen
 
