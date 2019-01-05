@@ -545,125 +545,121 @@ Selecteer het account en klik op *OK*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(400).png)
 Klik op *Apply* en *OK* om de veranderingen toe te passen.
 
-#### .....
+#### Deploying Adobe Reader
 
-
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(410).png)
+In deze sectie zullen we Adobe Reader deployen op een client. Hiervoor zullen we eerst een `.msi` moeten extracten uit een `.exe` file.
 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(411).png)
-
+Om een package te deployen hebben we eerst een `.msi` bestand van de adobe installer nodig. In dit voorbeeld zullen we dit uit de 11.0.10 adobe installer halen, en daarna updaten naar de 11.0.14 update zodat we een 11.0.14 `.msi` installer hebben. Ga naar de locatie waar de installer en de update zijn in command prompt en voer het volgende commando uit: `AdbeRdr11010_en_US.exe  -nos_ne -nos_o"C:\AdobeDeployment\Adobe AIP"`. Dit zal de installer uitvoeren en het `.msi` bestand extracten in de nieuwe folder *Adobe AIP*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(412).png)
-
+Ga in de nieuwe map en voer het commando `msiexec /a AcroRead.msi`. 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(413).png)
-
+Dit zal de msi installer uitvoeren. Geef een **nieuwe** map op waar de bestanden van de installer in zullen geplaatst worden en ga door de installatie van Adobe.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(414).png)
-
+Voer nu het commando `msiexec /a "C:\AdobeDeployment\Adobe Reader\AcroRead.msi" /p "C:\AdobeDeployment\AdbeRdrUpd11014.msp"` in. dit zal de nieuwe update installeren.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(415).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(416).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(417).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(418).png)
-
+Kies **dezelfde** locatie als daarnet om de bestanden te installeren en ga door de installer. De adobe bestanden zijn nu klaar voor gebruik.
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(410).png)
+In SCCM, ga naar *Software Library* en navigeer naar `Overview > Application Management`. Rechterklik op *Packages* en maak een nieuwe package aan.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(419).png)
-
+Geef een naam op voor de package en vink *This package contains source files* aan. Klik op *Browse...* 
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(418).png)
+Klik nogmaals op *Browse...*
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(417).png)
+Selecteer de locatie van de Adobe Reader bestanden en klik op *Select Folder*. In dit voorbeeld hebben we de bestanden gekopieerd naar de volgende netwerklocatie.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(420).png)
-
+Klik op *Next.* Selecteer *Standard program* en klik nogmaals op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(421).png)
-
+Geef een naam mee in en voer als command line het volgende in: `msiexec /i "AcroRead.msi" /q`. Selecteer Program can run: *Whether or not a user is logged on* en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(422).png)
-
+Selecteer dat het programa op alle platformen kan uitgevoerd worden en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(423).png)
-
+Lees de samenvatting om na te gaan of alles in orde is en klik in dat geval op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(424).png)
-
+De package en het programma zijn succesvol aangemaakt. Klik op *Close* om de wizard af te sluiten.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(425).png)
-
+Onder *Packages* is nu de nieuwe Adobe Package te vinden. Rechterklik op de package en kies om de Content te Distributen. 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(426).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(427).png)
-
+Klik op *Add* en voeg een *Distribution Point* toe.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(428).png)
-
+Selecteer het Distribution Point en klik op *OK*. Note: Als er geen Distribution Point weergegeven wordt wil het zeggen dat je vorige stappen hebt overgeslaan en terug moet gaan.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(429).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(430).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(431).png)
-
+De Content is succesvol Distributed, klik op *close* om de wizard af te sluiten.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(432).png)
-
+Nu kan de package Deployed worden. Rechterklik op de package en klik op *Deploy.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(433).png)
-
+Selecteer de collection waarop je wil deployen door op *Browse...* te klikken en klik vervolgens op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(434).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(435).png)
-
+Kies voor *Available* om safe te zijn. Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(436).png)
-
+We willen zo snel mogelijk deployen dus specifieren geen tijd. Klik op *Next*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(437).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(438).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(439).png)
-
+Lees de samenvatting en klik op *Next* als alels in orde is.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(440).png)
+De deployment wizard is succesvol, klik op *Close.*
+
+#### Deploying software updates
+
+Het laatste wat we zullen doen is er voor zorgen dat software updates deployed kunnen worden. Hiervoor moeten we eerst een *Software update point* aanmaken.
 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(441).png)
-
+Ga terug naar *Sites* onder de *Administration* tab en klik op *Add Site System Roles* uit het menu vanboven.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(442).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(443).png)
-
+We hebben geen proxy, klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(444).png)
-
+Selecteer het *Software update point* en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(445).png)
-
+We hebben WSUS geconfigureerd om poorten 8530 en 8531 te gebruiken voor het client verkeer. Slecteer deze en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(446).png)
-
+Check *Use credentials* en klik op *Set...* en kies voor *Existing Account.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(447).png)
-
+Selecteer het account en klik op *OK*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(448).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(449).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(450).png)
-
+We willen synchronization om de 7 uur laten gebeuren. Check ook om een Alert te sturen indien de sync failt en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(451).png)
-
+Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(452).png)
-
+Selecteer de soort updates die je wilt synchronizeren en klik vervolgens op *Next.* Hier kiezen we voor *Critical, Definition* en *Security Updates*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(453).png)
-
+Selecteer de producten die je wilt synchronizeren en klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(454).png)
-
+Voor talen selecteren we *Nederlands* en *Engels*. Klik op *Next.*
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(455).png)
-
+Bekijk de samenvatting en klik op *Next* als alles in orde is.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(456).png)
-
+De wizard is succesvol beeïndigd, klik op *close*.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(457).png)
-
+Ga nu naar de *All Software Updates* onder de *Software Library* tab en klik op *Synchronize Software Updates* in het bovenste menu. 
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(458).png)
-
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/SCCM/Screenshot%20(459).png)
-
-
-#### Een gebruikerspostvak toevoegen
-
-....
+Klik op *Yes* om de synchronizatie uit te voeren.
 
 
 ## Extra
 Admin Password: K3anu
-
-Keanu Nys Mail Password: K3anuK3anu
 
 ## Resources:
 
 - https://docs.microsoft.com/en-us/windows-server/networking/technologies/
 - https://docs.microsoft.com/en-us/powershell/module/
 - Cursus Win 2016
-- Cursus Exchange 2013
-- www.mustbegeek.com
+- Cursus SCCM
+- Cursus MS SQL 2017 
+- http://prajwaldesai.com
