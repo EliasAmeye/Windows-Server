@@ -24,7 +24,7 @@ Note: De client is geen server en om hem op te starten moeten we een Windows 10.
 
 # Testing the DHCP and DNS Server
 
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(493).png?raw=true)
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(493).png?raw=true)
 In het linkse venster kunnen we een paar interessante zaken zien:
  * **DHCP** is ingeschakeld.
   * De DHCP server is `192.168.1.1`
@@ -41,7 +41,7 @@ Uit de informatie op het rechtse venster kunnen we ook een paar zaken vaststelle
 #### Testing the SQL Server
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(486).png?raw=true)
 Installeer *Microsoft SQL Server Studio*. Over deze installatie zijn we al gegaan in de documentatie van de [SQL Server](https://github.com/KeanuNys/Windows-Server/blob/master/Documentatie/SQL%20Server.md).
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(488).png?raw=true)
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(488).png?raw=true)
 Open SSMS en connecteer met de SQL Server door de server naam in te geven en op *Connect* te klikken. De SQL server is: `ServerSQLEX.keanys.gent`.
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(489).png?raw=true)
 We zijn succesvol verbonden met de SQL Server!
