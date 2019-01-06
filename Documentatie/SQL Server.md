@@ -1,4 +1,4 @@
-# Documentatie Exchange Server
+# Documentatie SQL Server
 
 ## Configuratie
 
@@ -90,5 +90,4 @@ Admin Password: K3anu
 - https://docs.microsoft.com/en-us/windows-server/networking/technologies/
 - https://docs.microsoft.com/en-us/powershell/module/
 - Cursus Win 2016
-- Cursus Exchange 2013
-- www.mustbegeek.com
+- Cursus SQL 2017
