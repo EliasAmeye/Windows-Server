@@ -1,0 +1,1 @@
+# Screenshots Client Configuration
