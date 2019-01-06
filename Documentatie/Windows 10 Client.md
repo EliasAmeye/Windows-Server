@@ -39,20 +39,20 @@ Uit de informatie op het rechtse venster kunnen we ook een paar zaken vaststelle
 
 
 #### Testing the SQL Server
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(486).png?raw=true)
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(486).png?raw=true)
 Installeer *Microsoft SQL Server Studio*. Over deze installatie zijn we al gegaan in de documentatie van de [SQL Server](https://github.com/KeanuNys/Windows-Server/blob/master/Documentatie/SQL%20Server.md).
 ![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(488).png?raw=true)
 Open SSMS en connecteer met de SQL Server door de server naam in te geven en op *Connect* te klikken. De SQL server is: `ServerSQLEX.keanys.gent`.
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(489).png?raw=true)
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(489).png?raw=true)
 We zijn succesvol verbonden met de SQL Server!
 
 # Testing the mail server
 
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(487).png?raw=true)
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(487).png?raw=true)
 Open de Mail app van Microsoft die standaard geïnstalleerd is op Windows 10. Selecteer dat je wil verbinden met een Exchange server en geef de gegevens van de gebruiker in. 
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(491).png?raw=true)
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(491).png?raw=true)
 Het is mogelijk dat nog een paar extra instellingen gevraagd worden voor ingelogd kan worden, zoals het adres van de server, het domein de gebruikersnaam, ... 
-![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Exchange/Screenshot%20(490).png?raw=true)
+![Image](https://github.com/KeanuNys/Windows-Server/blob/master/Screenshots/Client/Screenshot%20(490).png?raw=true)
 Op deze screenshot is te zien dat er succesvol ingelogd is in het gebruikerspostvak van *keanunys* via zowel de website en de mail applicatie. 
 
 ## Extra
